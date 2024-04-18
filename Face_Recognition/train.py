@@ -1,19 +1,18 @@
 from tkinter import*    
 from tkinter import ttk   
-from PIL import Image,ImageTk #to get the image 
+from PIL import Image,ImageTk 
 from tkinter import messagebox
 import mysql.connector 
 import cv2
 import subprocess
 import os
-import numpy as np #numpy give 88% more performance than other to convert to array
+import numpy as np 
 
 
-#open cv= ek open source libraray h es m more tha 2500 algorithm h classic and machine learning alogrithm h
-#maily use for face detection
 
-class Train: #class name Face_Recognition_System  
-  def __init__(self, root): #constructor 
+
+class Train:  
+  def __init__(self, root):
     self.root = root
     self.root.geometry("1530x790+0+0")
     self.root.title("Face_Recognition_System") 
@@ -39,9 +38,7 @@ class Train: #class name Face_Recognition_System
     b1_1 = Button(self.root, text="Train data",command=self.train_classifier,cursor="hand2", font=("times new roman",100,"bold"),bg="green", fg="blue")
     b1_1.place(x=0, y=350, width=1530, height=90)
 
-# Note that face recognition is different of face detection:
-# Face Detection: it has the objective of finding the faces (location and size) in an image and probably extract them to be used by the face recognition algorithm.
-# Face Recognition: with the facial images already extracted, cropped, resized and usually converted to grayscale, the face recognition algorithm is responsible for finding characteristics which best describe the image.
+
      
 
   def train_classifier(self):
