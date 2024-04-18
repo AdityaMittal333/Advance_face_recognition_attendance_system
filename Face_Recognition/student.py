@@ -5,11 +5,8 @@ from tkinter import messagebox
 import mysql.connector 
 import cv2
 
-#open cv= ek open source libraray h es m more tha 2500 algorithm h classic and machine learning alogrithm h
-#maily use for face detection
-
-class Student: #class name Face_Recognition_System  
-  def __init__(self, root): #constructor 
+class Student:   
+  def __init__(self, root):  
     self.root = root
     self.root.geometry("1530x790+0+0")
     self.root.title("Face_Recognition_System")
@@ -34,10 +31,10 @@ class Student: #class name Face_Recognition_System
 
      #image 1
     img=Image.open("S1.jpg")
-    img = img.resize((500, 130)) # doing resizeing ANTIALIAS convert high level image to low level image  
-    self.photoimg=ImageTk.PhotoImage(img)  #img varoiable to photoimg 
-    f_lbl=Label(self.root,image=self.photoimg) #label is given 
-    f_lbl.place(x=0,y=0,width=500,height=130)  #adjusting l,b,h and cordinates 
+    img = img.resize((500, 130))   
+    self.photoimg=ImageTk.PhotoImage(img) 
+    f_lbl=Label(self.root,image=self.photoimg)  
+    f_lbl.place(x=0,y=0,width=500,height=130)  
 
     #image 2
     img=Image.open("S2.jpg")
@@ -60,11 +57,11 @@ class Student: #class name Face_Recognition_System
     bg_img=Label(self.root,image=self.photoimg3)
     bg_img.place(x=0,y=130,width=1530,height=710)  
     
-    title_lbl=Label(bg_img,text="Student Management System",font=("times new roman",35,"bold"),bg="white",fg="darkgreen") #making lable of above background image 
-    title_lbl.place(x=0,y=0,width=1530,height=45)  #setting the place where to display the label
+    title_lbl=Label(bg_img,text="Student Management System",font=("times new roman",35,"bold"),bg="white",fg="darkgreen") 
+    title_lbl.place(x=0,y=0,width=1530,height=45) 
 
-    main_frame=Frame(bg_img,bd=2,bg="white") #bd means border frame on background 
-    main_frame.place(x=10,y=55,width=1415,height=750) #coordinates of main frame
+    main_frame=Frame(bg_img,bd=2,bg="white")
+    main_frame.place(x=10,y=55,width=1415,height=750) 
     
     #left label frame
     Left_frame=LabelFrame(main_frame,bd=2,bg="white",relief=RIDGE,text="Student Details",font=("times new roman",12,"bold"),fg="black")
@@ -87,7 +84,7 @@ class Student: #class name Face_Recognition_System
 
     dep_combo=ttk.Combobox(current_course_frame,textvariable=self.var_Dep,font=("times new roman",12,"bold"),state="read only",width=20)
     dep_combo["values"]=("Select Department","Computer","IT","Civil","Mechanical")
-    dep_combo.current(0) #first select ek andr likha hoga select departemnt 
+    dep_combo.current(0) 
     dep_combo.grid(row=0,column=1,padx=2,pady=10,sticky=W)
 
     #course
@@ -96,7 +93,7 @@ class Student: #class name Face_Recognition_System
 
     course_combo=ttk.Combobox(current_course_frame,textvariable=self.var_Course,font=("times new roman",12,"bold"),state="readyonly",width=20)
     course_combo["values"]=("Select Course","FE","SE","TE","BE")
-    course_combo.current(0) #first select ek andr likha hoga select departemnt 
+    course_combo.current(0) 
     course_combo.grid(row=0,column=3,padx=2,pady=10,sticky=W)
 
     #Year
@@ -105,7 +102,7 @@ class Student: #class name Face_Recognition_System
 
     year_combo=ttk.Combobox(current_course_frame,textvariable=self.var_Year,font=("times new roman",12,"bold"),state="readyonly",width=20)
     year_combo["values"]=("Select Year","2020-21","2021-22","2022-23","2023-24")
-    year_combo.current(0) #first select ek andr likha hoga select departemnt 
+    year_combo.current(0) 
     year_combo.grid(row=1,column=1,padx=2,pady=10,sticky=W)
 
      #Semester
@@ -114,7 +111,7 @@ class Student: #class name Face_Recognition_System
 
     semester_combo=ttk.Combobox(current_course_frame,textvariable=self.var_Sem,font=("times new roman",12,"bold"),state="readyonly",width=20)
     semester_combo["values"]=("Select Semester","Semester-1","Semester-2")
-    semester_combo.current(0) #first select ek andr likha hoga select departemnt 
+    semester_combo.current(0) 
     semester_combo.grid(row=1,column=3,padx=2,pady=10,sticky=W)
 
      #Class Student Information
@@ -158,7 +155,7 @@ class Student: #class name Face_Recognition_System
  
     gender_combo=ttk.Combobox(class_student_frame,textvariable=self.var_Gender,font=("times new roman",12,"bold"),state="readyonly",width=18)
     gender_combo["values"]=("Male","Female","Other")
-    gender_combo.current(0) #first select ek andr likha hoga select departemnt 
+    gender_combo.current(0) 
     gender_combo.grid(row=2,column=1,padx=10,pady=10,sticky=W)
 
     #DOB
@@ -195,9 +192,6 @@ class Student: #class name Face_Recognition_System
  
     teacher_entry=ttk.Entry(class_student_frame,textvariable=self.var_Teacher,width=20,font=("times new roman ",13,"bold"))
     teacher_entry.grid(row=4,column=3,padx=10,pady=5,sticky=W)
-    
-    #radio Buttons
-    #textvariable=self.var_radio1
     
     self.var_radio1=StringVar()
     Radiobutton1=ttk.Radiobutton(class_student_frame,variable=self.var_radio1,text="Take Photo sample",value="Yes")
@@ -254,7 +248,7 @@ class Student: #class name Face_Recognition_System
     
     search_combo=ttk.Combobox(search_frame,font=("times new roman",12,"bold"),state="readyonly",width=12 )
     search_combo["values"]=("Select","Roll_No")
-    search_combo.current(0) #first select ek andr likha hoga select departemnt 
+    search_combo.current(0) 
     search_combo.grid(row=0,column=1,padx=2,pady=10,sticky=W)
 
 
@@ -271,11 +265,11 @@ class Student: #class name Face_Recognition_System
     table_frame = Frame(Right_frame, bd=2, bg="white", relief=RIDGE)
     table_frame.place(x=5, y=200, width=680, height=350)
  
-    scroll_x = ttk.Scrollbar(table_frame, orient=HORIZONTAL) #scroll bar
+    scroll_x = ttk.Scrollbar(table_frame, orient=HORIZONTAL) 
     scroll_y = ttk.Scrollbar(table_frame, orient=VERTICAL)
 
-    self.student_table = ttk.Treeview(table_frame, column=("Dep", "Course", "Year", "semester", "Student_Id", "Name", "Divison", "RollNO", "Gender", "Dob", "Email", "Phone", "Address", "Teacher", "Photo_Sample"), xscrollcommand=scroll_x.set, yscrollcommand=scroll_y.set) #to set the element of search system
-    #part of scroll bar
+    self.student_table = ttk.Treeview(table_frame, column=("Dep", "Course", "Year", "semester", "Student_Id", "Name", "Divison", "RollNO", "Gender", "Dob", "Email", "Phone", "Address", "Teacher", "Photo_Sample"), xscrollcommand=scroll_x.set, yscrollcommand=scroll_y.set) 
+   
     scroll_x.pack(side=BOTTOM, fill=X)
     scroll_y.pack(side=RIGHT, fill=Y)
     scroll_x.config(command=self.student_table.xview)
@@ -301,15 +295,14 @@ class Student: #class name Face_Recognition_System
 
 
     self.student_table.pack(fill=BOTH,expand=1)
-    #function jab ham right side ke data pe click kare toh uss ki details left side m automatically fill hojayeg
     self.student_table.bind("<ButtonRelease>",self.get_cursor) 
 
     self.fetch_data()
 
-  #function declartion for saving data in mysql
+  
   def add_data(self):
      if self.var_Dep.get()=="Select Department" or self.var_Name.get()=="" or self.var_Student_Id.get()=="":
-        messagebox.showerror("Error","All Fields are required",parent=self.root) #parent is used to show message window on parent window sometime message go on other window  
+        messagebox.showerror("Error","All Fields are required",parent=self.root) 
      else:
         try:
           conn=mysql.connector.connect(host="localhost",username="root",password="amittal123",database="face_recognizer")
@@ -334,34 +327,34 @@ class Student: #class name Face_Recognition_System
 
                                                                                                         ))
           conn.commit() 
-          self.fetch_data()   #function to show data on screen
+          self.fetch_data()  
           conn.close()
           messagebox.showinfo("Success","student details has been added succesfully",parent=self.root)
         except Exception as es:
            messagebox.showerror("Error",f"Due to :{str(es)}",parent=self.root)
 
 
-  # fetch data , function to show data on screen 
+   
   def fetch_data(self):
      conn=mysql.connector.connect(host="localhost",username="root",password="amittal123",database="face_recognizer")
-     my_cursor=conn.cursor() #conn.cursor ko my_cursor mai store kar re h
+     my_cursor=conn.cursor() 
      my_cursor.execute("select * from student")
-     data=my_cursor.fetchall() #ab my-cursor ko data m store kar re h
+     data=my_cursor.fetchall()
 
-     if len(data)!=0:  #agar data ki length zero nahi h toh loop run karega 
+     if len(data)!=0: 
         self.student_table.delete(*self.student_table.get_children())
         for i in data:
            self.student_table.insert("",END,values=i)
         conn.commit()
         conn.close()  
 
-#get cursore #function jab ham right side ke data pe click kare toh uss ki details left side m automatically fill hojayeg
+
   def get_cursor(self,event=""):
       cursor_focus=self.student_table.focus()
       content=self.student_table.item(cursor_focus)
-      data=content.get("values", []) #storing values of data in data variable
+      data=content.get("values", []) 
       
-      if data:  # Check if data is not empty
+      if data:  
         self.var_Dep.set(data[0])
         self.var_Course.set(data[1])
         self.var_Year.set(data[2])
@@ -498,25 +491,25 @@ class Student: #class name Face_Recognition_System
              self.fetch_data()
              self.reset_data()
              conn.close()
-             # we are use Haar Cascades alogrithm (interview se pehle haar cascades ko sahi padh lena ) 
+             # we are use Haar Cascades alogrithm  
 
-              #load predifiend data on frontal from opencv
-             face_classifier=cv2.CascadeClassifier("haarcascade_frontalface_default.xml") #face_classifier my algorithm safe karli
+              
+             face_classifier=cv2.CascadeClassifier("haarcascade_frontalface_default.xml") 
 
-             def face_cropped(img):# function h ye
-                 gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)  #convert photo into gray
-                 faces=face_classifier.detectMultiScale(gray,1.3,5) #gray photo faces m leli
-                 #color=gray
-                 #scaling factor =1.3
-                 #minimum neighbor=5
+             def face_cropped(img):
+                 gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY) 
+                 faces=face_classifier.detectMultiScale(gray,1.3,5) 
+                 
+                 
+                
 
                  for(x,y,w,h) in faces:
-                    face_cropped=img[y:y+h,x:x+w] #photo ko crop karlia 
+                    face_cropped=img[y:y+h,x:x+w]  
                     return face_cropped
                  
              cap =cv2.VideoCapture(0)
              img_id=0
-             while True: #loop run kiya 100 photo ke liye
+             while True: 
                 ret,my_frame=cap.read()
                 if face_cropped(my_frame) is not None:
                    img_id+=1
@@ -537,7 +530,7 @@ class Student: #class name Face_Recognition_System
 
             
 
-if __name__ == "__main__":   #main started from here 
-      root = Tk()    #tk to root
-      obj = Student(root)  #making object of class by passing root 
-      root.mainloop()  #main ends here  
+if __name__ == "__main__":   
+      root = Tk()    
+      obj = Student(root)  
+      root.mainloop()   
