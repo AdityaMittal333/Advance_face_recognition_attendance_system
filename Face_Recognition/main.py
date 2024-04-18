@@ -1,7 +1,6 @@
-from tkinter import*    #library for gui development
-from tkinter import ttk  #have stylish 
-# importing pillow library using this command = pip install pillow
-from PIL import Image,ImageTk # using to crop or edit image
+from tkinter import*    
+from tkinter import ttk  
+from PIL import Image,ImageTk
 import subprocess
 from student import Student  
 import os
@@ -12,18 +11,18 @@ from attendence import Attendence
 from help import Help
 
 
-class Face_Recognition_System: #class name Face_Recognition_System
-  def __init__(self, root): #constructor 
+class Face_Recognition_System: 
+  def __init__(self, root):  
     self.root = root
     self.root.geometry("1530x790+0+0")
     self.root.title("Face_Recognition_System")
   
      #image 1
     img=Image.open("vassar-college-thompson-memorial-library.webp")
-    img = img.resize((500, 130)) # doing resizeing ANTIALIAS convert high level image to low level image  
-    self.photoimg=ImageTk.PhotoImage(img)  #img varoiable to photoimg 
-    f_lbl=Label(self.root,image=self.photoimg) #label is given 
-    f_lbl.place(x=0,y=0,width=500,height=130)  #adjusting l,b,h and cordinates 
+    img = img.resize((500, 130))  
+    self.photoimg=ImageTk.PhotoImage(img)  
+    f_lbl=Label(self.root,image=self.photoimg)  
+    f_lbl.place(x=0,y=0,width=500,height=130)  
 
     #image 2
     img=Image.open("images.jpeg")
@@ -46,12 +45,12 @@ class Face_Recognition_System: #class name Face_Recognition_System
     bg_img=Label(self.root,image=self.photoimg3)
     bg_img.place(x=0,y=130,width=1530,height=790)  
     title_lbl=Label(bg_img,text="FACE RECOGNITION ATTENDANCE SYSTEM SOFTWARE",font=("times new roman",35,"bold"),bg="white",fg="red") #making lable of above background image 
-    title_lbl.place(x=0,y=0,width=1530,height=45)  #setting the place where to display the label 
+    title_lbl.place(x=0,y=0,width=1530,height=45)  
     
     #student button
     img4=Image.open("istockphoto-1368965646-612x612.jpg")
-    img4 = img4.resize((220, 220)) # doing resizeing ANTIALIAS convert high level image to low level image  
-    self.photoimg4=ImageTk.PhotoImage(img4)  #img varoiable to photoimg 
+    img4 = img4.resize((220, 220))  
+    self.photoimg4=ImageTk.PhotoImage(img4)  
 
     b1=Button(bg_img,image=self.photoimg4,command=self.student_details,cursor="hand2")
     b1.place(x=200,y=100,width=220,height=220)
@@ -130,26 +129,26 @@ class Face_Recognition_System: #class name Face_Recognition_System
        
 
     #function button
-  def student_details(self): #function for student detial     
+  def student_details(self):     
        self.new_window=Toplevel(self.root) 
        self.app=Student(self.new_window) 
 
-  def train_details(self): #function for student detial     
+  def train_details(self):     
        self.new_window=Toplevel(self.root) 
        self.app=Train(self.new_window) 
 
-  def face_data(self): #function for student detial     
+  def face_data(self):     
        self.new_window=Toplevel(self.root) 
        self.app=Face_recognizer(self.new_window)
 
-  def Attendence_data(self): #function for student detial     
+  def Attendence_data(self):     
        self.new_window=Toplevel(self.root) 
        self.app=Attendence(self.new_window)
-  def Developer_data(self): #function for student detial     
+  def Developer_data(self):     
        self.new_window=Toplevel(self.root) 
        self.app=Developer(self.new_window)
 
-  def help_data(self): #function for student detial     
+  def help_data(self):    
        self.new_window=Toplevel(self.root) 
        self.app=Help(self.new_window)
 
