@@ -154,7 +154,7 @@ class Face_Recognition_System:
 
 
 
-if __name__ == "__main__":   #main started from here 
-      root = Tk()    #tk to root
-      obj = Face_Recognition_System(root)  #making object of class by passing root 
-      root.mainloop()  #main ends here 
+if __name__ == "__main__":   
+      root = Tk()    
+      obj = Face_Recognition_System(root) 
+      root.mainloop()  
