@@ -210,7 +210,7 @@ class Attendence:
      content=self.AttendenceReportTable.item(cursor_row)
      rows=content['values']
      if rows:
-        if len(rows) >= 7:  # Ensure rows has enough elements
+        if len(rows) >= 7:  
             self.var_Employee_Id.set(rows[0])
             self.var_Name.set(rows[1])
             self.var_Department.set(rows[2])
