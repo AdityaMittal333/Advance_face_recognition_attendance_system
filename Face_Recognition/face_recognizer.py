@@ -36,7 +36,7 @@ class Face_recognizer:
         b1_1 = Button(f_lbl, text="Face Recognition", cursor="hand2", font=("times new roman", 18, "bold"), bg="green", fg="green", command=self.face_recog)
         b1_1.place(x=365, y=620, width=200, height=40)
 
-        # Call train_classifier method during initialization
+        
         self.train_classifier()
 
     def mark_attendence(self,i,r,n,d):
@@ -85,10 +85,10 @@ class Face_recognizer:
     #face recoginition
     def face_recog(self):
         def draw_boundray(img,classifier,scaleFactor,minNeighors,color,text,clf):
-            gray_image=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)#image to gary scale
+            gray_image=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
             features=classifier.detectMultiScale(gray_image,scaleFactor,minNeighors)
 
-            coord=[] #empty coordinate 
+            coord=[]  
 
             for (x,y,w,h) in features:
                 cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),3)
@@ -129,7 +129,7 @@ class Face_recognizer:
             return coord
      
         def recognize(img,clf,faceCascade):
-            coord=draw_boundray(img,faceCascade,1.1,10,(255,25,255),"face",clf) #yaha pe uper wala function call hora h
+            coord=draw_boundray(img,faceCascade,1.1,10,(255,25,255),"face",clf) 
             return img
      
         faceCascade=cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
